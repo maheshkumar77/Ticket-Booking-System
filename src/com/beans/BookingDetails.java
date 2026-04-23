@@ -70,5 +70,10 @@ public class BookingDetails implements Serializable {
 	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
-
+public void setAmount(Double amount) {
+		this.amount = amount;
+	}
+	public void setAmount(Double amount) {
+		this.amount = amount;
+	}
 }
