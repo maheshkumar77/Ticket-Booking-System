@@ -34,6 +34,18 @@ public class TrainUtil {
 
 			// Add the user details to the ServletContext with key as role name
 			request.getServletContext().setAttribute(userRole.toString(), user);
+			try {
+			UserBean user = userService.loginUser(username, password);
+
+			// Add the user details to the ServletContext with key as role name
+			request.getServletContext().setAttribute(userRole.toString(), user);
+
+			// Store the user firstName and mailId in the http session
+			request.getSession().setAttribute("uName", user.getFName());
+			request.getSession().setAttribute("mailid", user.getMailId());
+
+			// Add the sessionId to the cookie with key as sessionId
+			Cookie cookie = new Cookie("sessionIdFor" + userRole.toString(), UUID.randomUUID().toString());
 
 			// Store the user firstName and mailId in the http session
 			request.getSession().setAttribute("uName", user.getFName());
